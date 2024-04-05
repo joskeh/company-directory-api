@@ -1,5 +1,8 @@
 <script setup>
 import MainCardSingle from './MainCardSingle.vue';
+import useAPI from '@/composables/useAPI';
+
+const {employees} = useAPI()
 
 </script>
 
@@ -8,6 +11,6 @@ import MainCardSingle from './MainCardSingle.vue';
 <template>
 
 <div class="grid grid-cols-5 gap-10 p-10">
-    <MainCardSingle v-for="card in 20" :key="card"></MainCardSingle>
+    <MainCardSingle v-for="employee in employees" :key="employee._id" :employee="employee"></MainCardSingle>
 </div>
 </template>
